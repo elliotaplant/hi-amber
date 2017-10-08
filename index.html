@@ -34,7 +34,8 @@
   <meta name="theme-color"
         content="#ffffff">
 
-  <style media="screen" src="style.css"></style>
+  <style media="screen"
+         src="style.css"></style>
 </head>
 
 <body>
@@ -60,6 +61,14 @@
     function setNewColors() {
       body.style['background-color'] = randTripple(200, 255);
       hiAmber.style.color = randTripple(0, 100);
+    }
+
+    function changePhrase() {
+      var currentPhrase = hiAmber.textContent;
+      while (hiAmber.textContent === currentPhrase) {
+        hiAmber.textContent = phrases.random();
+      }
+      setNewColors();
     }
 
     var phrases = [
@@ -88,14 +97,7 @@
     ]
 
     body.onclick = changePhrase;
-
-    function changePhrase() {
-      var currentPhrase = hiAmber.textContent;
-      while (hiAmber.textContent === currentPhrase) {
-        hiAmber.textContent = phrases.random();
-      }
-      setNewColors();
-    }
+    body.ondragstart = changePhrase;
 
     setNewColors();
 
