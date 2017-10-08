@@ -3,12 +3,35 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable"
+        content="yes">
   <title>Hi Amber!</title>
   <link href="https://fonts.googleapis.com/css?family=Roboto"
         rel="stylesheet">
-  <link href="style.css"
-        rel="stylesheet">
+  <style media="screen">
+    html {
+      height: 100%;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      height: 100%;
+      margin: 0;
+      background-color: rgb(214, 227, 222);
+    }
+
+    #hi-amber {
+      padding: 0 1vw;
+      text-align: center;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 30px;
+      font-size: 8vw;
+    }
+
+  </style>
 
 
   <!-- Favicons -->
@@ -101,6 +124,7 @@
     body.addEventListener("touchend", changePhrase, false);
 
     setNewColors();
+
   </script>
 </body>
 
