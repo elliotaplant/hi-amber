@@ -97,7 +97,7 @@
     ]
 
     body.onclick = changePhrase;
-    body.ondragstart = changePhrase;
+    body.addEventListener("touchstart", changePhrase, false);
 
     setNewColors();
 
