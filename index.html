@@ -1,1 +1,88 @@
-Hi Amber!
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Hi Amber!</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto"
+        rel="stylesheet">
+  <link href="style.css"
+        rel="stylesheet">
+
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon"
+        sizes="180x180"
+        href="favicons/apple-touch-icon.png">
+  <link rel="icon"
+        type="image/png"
+        sizes="32x32"
+        href="favicons/favicon-32x32.png">
+  <link rel="icon"
+        type="image/png"
+        sizes="16x16"
+        href="favicons/favicon-16x16.png">
+  <link rel="manifest"
+        href="favicons/manifest.json">
+  <link rel="mask-icon"
+        href="favicons/safari-pinned-tab.svg"
+        color="#5bbad5">
+  <link rel="shortcut icon"
+        href="favicons/favicon.ico">
+  <meta name="msapplication-config"
+        content="favicons/browserconfig.xml">
+  <meta name="theme-color"
+        content="#ffffff">
+
+  <style media="screen" src="style.css"></style>
+</head>
+
+<body>
+  <div id="hi-amber">
+    Hi Amber!
+  </div>
+  <script type="text/javascript">
+    Array.prototype.random = function() {
+      return this[Math.floor((Math.random() * this.length))];
+    }
+
+    var hiAmber = document.querySelector('#hi-amber');
+    var body = document.querySelector('body');
+
+    function randColor(base, max) {
+      return Math.round(base + Math.random() * (max - base));
+    }
+
+    function randTripple(base, max) {
+      return `rgb(${randColor(base, max)}, ${randColor(base, max)}, ${randColor(base, max)})`;
+    }
+
+    function setNewColors() {
+      body.style['background-color'] = randTripple(200, 255);
+      hiAmber.style.color = randTripple(0, 100);
+    }
+
+    var phrases = [
+      'I think you\'re really cute :)',
+      'I love you soooooooooooo much',
+      'You mean the 🌎 to me',
+      'I love you to the 🌙 and back',
+      '🎶 I\'ll take you anywhere I go, anywhere 🎵'
+    ]
+
+    body.onclick = changePhrase;
+
+    function changePhrase() {
+      var currentPhrase = hiAmber.textContent;
+      while (hiAmber.textContent === currentPhrase) {
+        hiAmber.textContent = phrases.random();
+      }
+      setNewColors();
+    }
+
+    setNewColors();
+
+  </script>
+</body>
+
+</html>
