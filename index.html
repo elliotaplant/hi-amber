@@ -87,11 +87,18 @@
         hiAmber.style.color = randTriple(0, 100);
       }
 
+      var recentPhrases = new Set();
+
       function changePhrase() {
-        var currentPhrase = hiAmber.textContent;
-        while (hiAmber.textContent === currentPhrase) {
-          hiAmber.textContent = phrases.random();
+        var newPhrase;
+        while (recentPhrases.has(newPhrase)) {
+          newPhrase = phrases.random();
         }
+        recentPhrases.add(newPhrase);
+        if (recentPhrases.size > phrases.length * 0.8) {
+          recentPhrases = new Set();
+        }
+        hiAmber.textContent = phrases.random();
         setNewColors();
       }
 
