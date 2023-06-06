@@ -1,147 +1,175 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-  <meta charset="utf-8">
-  <meta name="mobile-web-app-capable"
-        content="yes">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <title>Hi Amber!</title>
-  <link href="https://fonts.googleapis.com/css?family=Roboto"
-        rel="stylesheet">
-  <style media="screen">
-    html {
-      height: 100%;
-    }
-
-    body {
-      font-family: 'Roboto', sans-serif;
-      height: 100%;
-      margin: 0;
-      background-color: rgb(214, 227, 222);
-    }
-
-    #hi-amber {
-      padding: 0 1vw;
-      text-align: center;
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 30px;
-      font-size: 8vw;
-    }
-
-  </style>
-
-
-  <!-- Favicons -->
-  <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
-  <link rel="manifest" href="favicons/manifest.json">
-  <link rel="mask-icon" href="favicons/safari-pinned-tab.svg" color="#5bbad5">
-  <link rel="shortcut icon" href="favicons/favicon.ico">
-  <meta name="msapplication-config" content="favicons/browserconfig.xml">
-  <meta name="theme-color" content="#ffffff">
-  <style media="screen" src="style.css"></style>
-</head>
-
-<body>
-  <div id="hi-amber">
-    Hi Amber!
-  </div>
-
-  <script type="text/javascript">
-    Array.prototype.random = function() {
-      return this[Math.floor((Math.random() * this.length))];
-    }
-
-    var hiAmber = document.querySelector('#hi-amber');
-    var body = document.querySelector('body');
-
-    function randColor(base, max) {
-      return Math.round(base + Math.random() * (max - base));
-    }
-
-    function randTripple(base, max) {
-      return `rgb(${randColor(base, max)}, ${randColor(base, max)}, ${randColor(base, max)})`;
-    }
-
-    function setNewColors() {
-      body.style['background-color'] = randTripple(200, 255);
-      hiAmber.style.color = randTripple(0, 100);
-    }
-
-    function changePhrase() {
-      var currentPhrase = hiAmber.textContent;
-      while (hiAmber.textContent === currentPhrase) {
-        hiAmber.textContent = phrases.random();
+  <head>
+    <meta charset="utf-8" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>Hi Amber!</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto"
+      rel="stylesheet"
+    />
+    <style media="screen">
+      html {
+        height: 100%;
       }
+
+      body {
+        font-family: "Roboto", sans-serif;
+        height: 100%;
+        margin: 0;
+        background-color: rgb(214, 227, 222);
+      }
+
+      #hi-amber {
+        padding: 0 1vw;
+        text-align: center;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 30px;
+        font-size: 8vw;
+      }
+    </style>
+
+    <!-- Favicons -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="favicons/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="favicons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="favicons/favicon-16x16.png"
+    />
+    <link rel="manifest" href="favicons/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="favicons/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="favicons/favicon.ico" />
+    <meta name="msapplication-config" content="favicons/browserconfig.xml" />
+    <meta name="theme-color" content="#ffffff" />
+    <style media="screen" src="style.css"></style>
+  </head>
+
+  <body>
+    <div id="hi-amber">Hi Amber!</div>
+
+    <script type="text/javascript">
+      Array.prototype.random = function () {
+        return this[Math.floor(Math.random() * this.length)];
+      };
+
+      var hiAmber = document.querySelector("#hi-amber");
+      var body = document.querySelector("body");
+
+      function randColor(base, max) {
+        return Math.round(base + Math.random() * (max - base));
+      }
+
+      function randTriple(base, max) {
+        return `rgb(${[1, 2, 3].map(() => randColor(base, max)).join(", ")})`;
+      }
+
+      function setNewColors() {
+        body.style["background-color"] = randTriple(200, 255);
+        hiAmber.style.color = randTriple(0, 100);
+      }
+
+      function changePhrase() {
+        var currentPhrase = hiAmber.textContent;
+        while (hiAmber.textContent === currentPhrase) {
+          hiAmber.textContent = phrases.random();
+        }
+        setNewColors();
+      }
+
+      var phrases = [
+        "I think you're really cute :)",
+        "I love you soooooooooooo much",
+        "You mean the 🌎 to me",
+        "I love you to the 🌙 and back",
+        "🎶 I'll take you anywhere I go, anywhere 🎵",
+        "I think we should get a really cute doggum",
+        "You are 🔥🔥🔥",
+        "You make me very very happy 😊",
+        "You're my best friend!",
+        "We would be an awesome superhero duo",
+        "Life is better when you're around",
+        "Words can't explain what a wonderful person you are",
+        "I wish I could wake up right next to you every day",
+        "I love making you smile",
+        "You take my breath away",
+        "I can't wait to see you again",
+        "You brighten up my day every time I see you",
+        "You've made my dreams come true",
+        "I wish I were an octopus so that I would have more arms to hold you",
+        "Someday we'll take an awesome trip to South East Asia and get a hut by the ocean",
+        "I love your snuggles",
+        "You're my fuzzy snuggler",
+        "I love playing dominion with you",
+        "I love climbing with you",
+        "I love playing snappa with you",
+        "I love cooking with you",
+        "I love dancing with you",
+        "I love making silly voices with you",
+        "I love exploring with you",
+        "I love your presents. They're so thoughtful!",
+        "I love you much my friends like you. You fit right into my life",
+        "I love how smart you are",
+        "🐻 + 🦁 = ❤️",
+        "I love you, I adore you, I worship you. You're my reason for everything, my reason to wake up in the morning and my reason to go to bed at night. You're my entire world, and I love you with every fiber of my being.",
+        "I love you more than anything in this world. You're my everything.",
+        "I love you more than words can express. You're my world and I can't imagine my life without you.",
+        "I love you, always and forever. You're my heart and soul.",
+        "I love your laugh. It's the most beautiful sound in the world.",
+        "I can't wait to spend the rest of my life with you. I'm so lucky to have you as my wife.",
+        "Waffle sunday is always the best day of the week because I get to spend it with you",
+        "You can always have all the covers",
+        "Cali and I are so luck to have you in our lives",
+        "You're basically a superhero",
+        "You can solve any problem",
+        "I love spending time with you, no matter what we're doing",
+        "I love the way you're always there for me, no matter what",
+        "I love the way you always know just what to say to make me feel better. You're my best friend and I love you for that.",
+        "I love the way you always know just how to make me laugh. You're my life and my joy, and I love you for that.",
+        "I love how you're always up for an adventure, no matter what it is. I'm so grateful to be with you and to experience life with you.",
+        "There's nothing better than making a Cali sandwich with you",
+        "You make me happy even when I don't want to be happy",
+        "It's so easy to make jokes with you",
+        "I love knowing exactly which song you're thinking of",
+        "I love gardening with you",
+        "I love making your breakfast",
+        "I love fixing our robot vacuum after it eats too much hair",
+        "I love telling you bedtime stories",
+        "I love going to dog beach with you and cali",
+        "I love being your wombat",
+        "I love being your cowboy",
+        "I love when you invite me to happy hour",
+        "I love making you cocktails when you get ready to go out",
+        "I love giving you presents",
+        "I love when you read with Cali in your lap",
+        "I love driving with you",
+      ];
+
+      if (navigator.userAgent.indexOf("Mobile") !== -1) {
+        body.addEventListener("touchend", changePhrase, false);
+      } else {
+        body.onclick = changePhrase;
+      }
+
       setNewColors();
-    }
-
-    var phrases = [
-      'I think you\'re really cute :)',
-      'I love you soooooooooooo much',
-      'You mean the 🌎 to me',
-      'I love you to the 🌙 and back',
-      '🎶 I\'ll take you anywhere I go, anywhere 🎵',
-      'I think we should get a really cute doggum',
-      'You are 🔥🔥🔥',
-      'You make me very very happy 😊',
-      'You\'re my best friend!',
-      'We would be an awesome superhero duo',
-      'Life is better when you\'re around',
-      'Words can’t explain what a wonderful person you are',
-      'I wish I could wake up right next to you every day',
-      'I love making you smile',
-      'You take my breath away',
-      'I can\'t wait to see you again',
-      'You brighten up my day every time I see you',
-      'You\'ve made my dreams come true',
-      'I wish I were an octopus so that I would have more arms to hold you',
-      'Someday we\'ll take an awesome trip to South East Asia and get a hut by the ocean',
-      'I love your snuggles',
-      'You\'re my fuzzy snuggler',
-      'I love playing dominion with you',
-      'I love climbing with you',
-      'I love playing snappa with you',
-      'I love cooking with you',
-      'I love dancing with you',
-      'I love making silly voices with you',
-      'I love exploring with you',
-      'I love your presents. They\'re so thoughtful!',
-      'I love you much my friends like you. You fit right into my life',
-      'I love how smart you are',
-      '🐻 + 🦁 = ❤️',
-      "I love you, I adore you, I worship you. You're my reason for everything, my reason to wake up in the morning and my reason to go to bed at night. You're my entire world, and I love you with every fiber of my being.",
-      "I love you more than anything in this world. You're my everything.",
-      "I love you more than words can express. You're my world and I can't imagine my life without you.",
-      "I love you, always and forever. You're my heart and soul.",
-      "I love your laugh. It's the most beautiful sound in the world.",
-      "I can't wait to spend the rest of my life with you. I'm so lucky to have you as my wife.",
-      "Waffle sunday is always the best day of the week because I get to spend it with you",
-      "You can always have all the covers",
-      "Cali and I are so luck to have you in our lives",
-      "You're basically a superhero",
-      "You can solve any problem",
-      "I love spending time with you, no matter what we're doing",
-      "I love the way you're always there for me, no matter what",
-      "I love the way you always know just what to say to make me feel better. You're my best friend and I love you for that.",
-      "I love the way you always know just how to make me laugh. You're my life and my joy, and I love you for that.",
-      "I love how you're always up for an adventure, no matter what it is. I'm so grateful to be with you and to experience life with you.",
-    ]
-
-    if (navigator.userAgent.indexOf('Mobile') !== -1) {
-      body.addEventListener("touchend", changePhrase, false);
-    } else {
-      body.onclick = changePhrase;
-    }
-
-    setNewColors();
-
-  </script>
-</body>
-
+    </script>
+  </body>
 </html>
